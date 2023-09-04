@@ -1,0 +1,24 @@
+﻿@model New_folder.Models.UserModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<hr />
+<div class="row">  
+    <div class="col-md-4">
+        <form action="Login" method="post"> 
+            @Html.LabelFor(m=>m.UserName)
+            @Html.TextBoxFor(m=>m.UserName,new{@class="form-control"})
+            @Html.ValidationMessageFor(m=>m.UserName,"",new{ @class = "text-danger"})<br>
+
+            @Html.LabelFor(m=>m.Password)
+            @Html.TextBoxFor(m=>m.Password,new{@class="form-control"})
+            @Html.ValidationMessageFor(m=>m.Password,"",new{ @class = "text-danger"})<br>
+
+            <button type="submit" class="btn btn-primary">Login</button>
+            
+        </form>
+    </div>
+</div>
+
+@section Scripts {@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}}
